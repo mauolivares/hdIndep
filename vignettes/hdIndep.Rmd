@@ -1,5 +1,5 @@
 ---
-title: "Empirical Application of Stepdown Procedure for Detecting Cell Cycle Transcripts"
+title: "Empirical Application Vignette"
 author: "Mauricio Olivares, Tomasz Olma, Daniel Wilhelm"
 date: "2025-02-28"
 output: rmarkdown::html_vignette
@@ -17,7 +17,7 @@ This vignette illustrates how our stepdown procedure can be applied to real gene
 
 Install and load required packages:
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install("GEOquery")
@@ -27,7 +27,7 @@ invisible(lapply(required_packages, require, character.only = TRUE))
 ```
 
 Load `hdIndep` package
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 library(hdIndep)
 ```
 
@@ -35,7 +35,7 @@ library(hdIndep)
 
 We analyze the GEO dataset GSE11923:
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 gse <- GEOquery::getGEO("GSE11923", GSEMatrix = TRUE)
 expr_data <- exprs(gse[[1]])
 ```
@@ -50,7 +50,7 @@ Each column in `expr_data` corresponds to a sample (GSM ID=GEO Sample). Each row
 
 Define parameters for the stepdown procedure:
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 n <- dim(expr_data)[2] # Sample size
 p <- dim(expr_data)[1] # Number of variables
 q <- block_size(n) # Block size
@@ -65,14 +65,14 @@ set.seed(seed)
 
 Reshape the data so that we can run the stepdown procedure automatically.
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 D <- t(expr_data)
 dat <- list(X = seq(1, n, by = 1), D = D)
 ```
 
 Run the stepdown procedure using the BMB1 studentized version of the test statistic
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 stud <- stepdown_RomanoWolf(dat, q, B, alpha, type, seed, steps = TRUE)
 length(stud$rejected_total) # Number of rejected hypotheses
 length(stud$rejected_total) /  dim(expr_data)[1]
@@ -81,12 +81,12 @@ stud$counter # Number of steps in the stepdown procedure
 
 Collect the variables that are screened out by the stepdown procedure. These are the probes that are not independent of the cycle phase.
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 independent_vars <- expr_data[stud_1$rejected_total, ]
 ```
 
 Finally, save the independent variables
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 write.csv(independent_vars, file = "data/independent_vars.csv")
 ```
 
@@ -99,7 +99,7 @@ https://pmc.ncbi.nlm.nih.gov/articles/PMC2654964/#pgen.1000442.s012
 
 This is an excel file, `pgen.1000442.s012.xls`, that contains the transcripts identified by Hughes et al. (2009) that cycle with a period length of 24 hrs, i.e., that are independent of the cell cycle phase.
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 df_hughes <- readxl::read_excel("data/pgen.1000442.s012.xls", sheet = 1)
 hughes2009 <- df_hughes[[1]] # Extract identified probes as a vector
 cat("Hughes et al. (2009) identified", length(hughes2009), "different
@@ -108,12 +108,12 @@ transcripts in mouse liver that cycle with a period length of 24 hours.\n")
 
 ## Compare transcripts from Hughes et al. (2009) with ours
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 raw_oow2025 <- read.csv("data/independent_vars.csv", header = TRUE, stringsAsFactors = FALSE)
 ```
 
 Extract only the first column
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 oow2025 <- raw_oow2025[[1]]  # Extract identified probes as a vector
 cat("Our stepdown method identified", length(oow2025),
     "different transcripts.\n")
@@ -121,7 +121,7 @@ cat("Our stepdown method identified", length(oow2025),
 
 Compare the two sets of identified transcripts
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 common <- intersect(hughes2009, oow2025)
 unique_oow <- setdiff(oow2025, hughes2009)
 unique_hughes <- setdiff(hughes2009, oow2025)
@@ -133,48 +133,48 @@ cat("There are", length(unique_oow), "transcripts unique to our method.\n")
 
 Take a random sample of unique transcripts identified by our procedure
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 cat("Here are 6 randomly selected transcripts identified by our procedure:\n")
 set.seed(6)
 id_sample <- sample(unique_oow, 6)
 ```
 
 What are these transcripts? Extract the platform (GPL) ID
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 gpl_id <- annotation(gse[[1]])
 ```
 
 Check the platform ID and download the annotation file for the platform
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 print(gpl_id)
 gpl <- getGEO(gpl_id)
 ```
 
 Extract annotation table and check available column names
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 gpl_table <- Table(gpl)
 colnames(gpl_table)
 ```
 
 
 Select relevant columns
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 probe_to_gene <- gpl_table[, c("ID", "Gene Symbol", "Gene Title")]
 ```
 
 Match with id_sample (your probe set IDs) and add original Probe Set IDs
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 gene_info <- probe_to_gene[match(id_sample, probe_to_gene$ID), c("Gene Symbol", "Gene Title")]
 gene_info$ProbeSetID <- id_sample
 ```
 Print the subset
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 print(gene_info)
 ```
 Replace id_sample with Gene Symbols for plots
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 id_sample_symbol <- gene_info$Gene.Symbol
 ```
 
@@ -184,19 +184,19 @@ id_sample_symbol <- gene_info$Gene.Symbol
 
 Convert raw_oow2025 to a matrix
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 raw_oow2025 <- as.matrix(raw_oow2025)
 ```
 
 Find id_sample in raw_oow2025 and return all the columns as a data frame
 
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 id_sample_df <- raw_oow2025[raw_oow2025[, 1] %in% id_sample, ]
 plot_data <- apply(id_sample_df[, -1], 2, as.numeric)
 ```
 
 Visuals
-```{r setup, eval=FALSE}
+```{r, eval=FALSE}
 x_vals <- 1:ncol(plot_data)
 
 for (i in 1:nrow(plot_data)) {
