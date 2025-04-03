@@ -11,9 +11,8 @@
 #' @keywords Chatterjee Rank Correlation
 #' @importFrom compiler cmpfun
 #' @export
-
-
-max.stat <- function(dat) {
+#'
+max_stat <- function(dat) {
 
   n <- length(dat$X)
   PI <- rank(dat$X, ties.method = "random")
@@ -30,4 +29,4 @@ max.stat <- function(dat) {
   # Return the test statistic
   sqrt(n) * max(xis)
 }
-max.stat <- compiler::cmpfun(max.stat)
+max_stat <- compiler::cmpfun(max_stat)

@@ -16,8 +16,6 @@
 #' @keywords block mutiplier bootstrap Chatterjee Rank Correlation
 #' @importFrom compiler cmpfun
 #' @export
-
-
 BMB.cv <- function(dat, q, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NULL) {
 
   type <- match.arg(type)

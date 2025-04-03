@@ -23,7 +23,7 @@ Author: Mauricio Olivares [aut, cre],
 Collate:
     'BMB.cv.r'
     'block_size.r'
-    'max.stat.r'
+    'max_stat.r'
     'stepdown_RomanoWolf.r'
 Suggests: knitr,
     rmarkdown

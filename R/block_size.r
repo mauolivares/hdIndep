@@ -11,8 +11,6 @@
 #' @keywords Chatterjee Rank Correlation Bootstrap
 #' @importFrom compiler cmpfun
 #' @export
-
-
 block_size <- function(n) {
 # Check if n is a positive integer
 if (!is.numeric(n) || length(n) != 1 || n <= 0 || n != round(n)) {

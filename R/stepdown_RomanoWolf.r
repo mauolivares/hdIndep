@@ -18,10 +18,6 @@
 #' @include BMB.cv.r
 #' @importFrom compiler cmpfun
 #' @export
-
-
-
-# Stepdown Romano-Wolf procedure to get critical values
 stepdown_RomanoWolf <- function(dat, q, B, alpha, type=c("bmb", "bmb1", "bmb2"), seed = NULL, steps = FALSE) {
   # Check if seed is NULL or a positive integer
   if (!is.null(seed) && (!is.numeric(seed) || length(seed) != 1 || seed <= 0 || seed != round(seed))) {

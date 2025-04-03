@@ -2,8 +2,10 @@
 # the package was installed successfully.
 # It's supposed to be as self-contained as possible.
 
+library(devtools)
+devtools::install_github("https://github.com/mauolivares/hdIndep.git")
 library(hdIndep)
-library(MASS)
+
 
 # Parameters
 n <- 100
@@ -44,7 +46,7 @@ gen_data <- function(n, p, tau = 0, rho = 0) {
 dat <- gen_data(n = n, p = p, rho = rho, tau = tau)
   
 # Calculate the test statistic as the maximum of many Chatterjee's rank correlations
-max_stats <- max.stat(dat)
+max_stats <- max_stat(dat)
 stepdown <- stepdown_RomanoWolf(dat, q, B, alpha, type, seed, steps = TRUE)
 # Perform the BMB test
 test_bmb <- BMB.cv(dat, q, B, alpha, type, seed)
