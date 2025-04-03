@@ -19,12 +19,10 @@ install.packages(<path-to-cloned-repository>, repos=NULL)
 
 Alternatively:
 
-1. Generate a Github PAT token [here](https://github.com/settings/tokens)
-2. Execute in R console:
+1. Execute in R console:
 ```r
-remotes::install_github("https://github.com/mauolivares/hdIndep.git",
-                        ref = "main", # Or other branch, tag, or commit
-                        auth_token = <token>)
+library(devtools)
+devtools::install_github("https://github.com/mauolivares/hdIndep.git")
 ```
 
 After successful installation, you can use the functions from `hdIndep` repository
@@ -45,14 +43,14 @@ Rscript tiny_simulation.r
 
 ## Usage
 
-The main functions to be used in empirical applications are `stepdown_RomanoWolf.r` and `BMB.cv.r`. Their source files are in `R/` directory. Their documentation could be read from source files or, after installing the hdIndep package, in RStudio with e.g.`?stepdown_RomanoWolf`, like with usual functions.
+The main functions to be used in empirical applications are `stepdown_RomanoWolf.r` and `BMB.cv.r`. Their source files are in `R/` directory. Their documentation could be read from source files or, after installing the `hdIndep` package, in R by typing, for instance, `?stepdown_RomanoWolf`, like with usual functions.
 
 The example usage of whole workflow is in `scripts/tiny_simulation.r`. 
 
 
 ## Data
 
-The code `vignettes/emp_app` replicates the empirical application in this paper. We use data from two sources:
+The vignette `vignettes/hdIndep.Rmd` presents a step-by-step guide to our proposed stepdown procedure. We use data from two sources:
 
 1. Hughes et al. (2009) collected liver tissue samples from mice at hourly intervals over a 48-hour period, pooling samples from 3-5 mice at each point. These data are available from Gene Expression Omnibus (GEO). In this paper, we focus on liver dataset (accession GSE11923). We extracted the data using the GEOquery and BiocManager R Packages.
 
