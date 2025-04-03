@@ -11,19 +11,20 @@ Authors@R: c(
     )
 Maintainer: Mauricio Olivares <mau.olivarego@gmail.com>
 Depends: R (>= 4.4.2)
-Imports: stats, compiler, 
+Imports: 
+    compiler
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.2
 Author: Mauricio Olivares [aut, cre],
         Tomasz Olma [aut],
         Daniel Wilhelm [aut]
 Collate:
-    'stepdown_RomanoWolf.r'
-    'max.stat.r'
     'BMB.cv.r'
     'block_size.r'
+    'max.stat.r'
+    'stepdown_RomanoWolf.r'
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr

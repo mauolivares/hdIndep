@@ -16,7 +16,7 @@
 #' Olivares, M., Olma, T., and Wilhelm, D. (2025). A Powerful Bootstrap Test of Independence in High Dimensions. Preprint, arXiv:2503.21715.
 #' @keywords Romano-Wolf Stepdown Block Multiplier Bootstrap Chatterjee Rank Correlation
 #' @include BMB.cv.r
-#' @import compiler
+#' @importFrom compiler cmpfun
 #' @export
 
 
@@ -72,7 +72,7 @@ stepdown_RomanoWolf <- function(dat, q, B, alpha, type=c("bmb", "bmb1", "bmb2"),
   return(output)
 }
 
-stepdown_RomanoWolf <- cmpfun(stepdown_RomanoWolf)
+stepdown_RomanoWolf <- compiler::cmpfun(stepdown_RomanoWolf)
 
 
 "xi_chatterjee" <- function(xvec, yvec, simple = TRUE) {

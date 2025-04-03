@@ -1,6 +1,6 @@
 #' @title Calculates the Gaussian BMB critical value based on the max-test statistic, where the maximum is taken over Chatterjee's correlation coefficients.
 #'
-#' @description This function returns the bootstrap critical value of the statistic \deqn{T^B=\max_{1\le j\le p}\frac{1}{\sqrt{mq}}\sum_{k=1}^{m} \hat{A}_{j,k} \cdot \varepsilon_{k}}} based on \eqn{B} block multiplier bootstrap samples.
+#' @description This function returns the bootstrap critical value of the statistic \deqn{T^B=\max_{1\le j\le p}\frac{1}{\sqrt{mq}}\sum_{k=1}^{m} \hat{A}_{j,k} \cdot \varepsilon_{k}} based on \eqn{B} block multiplier bootstrap samples.
 #' @param dat Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
 #' @param q Numeric. The block size.
 #' @param B Numeric. The number of bootstrap samples.
@@ -14,7 +14,7 @@
 #' @references
 #' Olivares, M., Olma, T., and Wilhelm, D. (2025). A Powerful Bootstrap Test of Independence in High Dimensions. Preprint, arXiv:2503.21715.
 #' @keywords block mutiplier bootstrap Chatterjee Rank Correlation
-#' @import compiler
+#' @importFrom compiler cmpfun
 #' @export
 
 
@@ -62,4 +62,4 @@ BMB.cv <- function(dat, q, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NUL
 
   return(output)
 }
-BMB.cv <- cmpfun(BMB.cv)
+BMB.cv <- compiler::cmpfun(BMB.cv)

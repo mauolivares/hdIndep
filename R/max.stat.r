@@ -9,7 +9,7 @@
 #' @references
 #' Olivares, M., Olma, T., and Wilhelm, D. (2025). A Powerful Bootstrap Test of Independence in High Dimensions. Preprint, arXiv:2503.21715.
 #' @keywords Chatterjee Rank Correlation
-#' @import compiler
+#' @importFrom compiler cmpfun
 #' @export
 
 
@@ -30,4 +30,4 @@ max.stat <- function(dat) {
   # Return the test statistic
   sqrt(n) * max(xis)
 }
-max.stat <- cmpfun(max.stat)
+max.stat <- compiler::cmpfun(max.stat)
