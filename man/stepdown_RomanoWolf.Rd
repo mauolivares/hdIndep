@@ -15,7 +15,7 @@ stepdown_RomanoWolf(
 )
 }
 \arguments{
-\item{dat}{Data frame. There are two elements in the data frame, X and D, where X is a random variable and D corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.}
+\item{dat}{Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.}
 
 \item{q}{Numeric. The block size for the block multiplier bootstrap.}
 

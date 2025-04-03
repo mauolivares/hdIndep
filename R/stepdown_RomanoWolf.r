@@ -1,7 +1,7 @@
 #' @title Romano-Wolf Stepdown Method
 #'
 #' @description Consider a family of individual null hypotheses \eqn{H_{0,j}: Y_j \perp X}, for \eqn{j=1,\dots,p}. This function implements a stepwise procedure for selecting those variables from \eqn{Y_1,\dots,Y_p} that violate independence, while controlling the family-wise error rate.
-#' @param dat Data frame. There are two elements in the data frame, X and D, where X is a random variable and D corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
+#' @param dat Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
 #' @param q Numeric. The block size for the block multiplier bootstrap.
 #' @param B Numeric. The number of bootstrap replications.
 #' @param alpha Numeric. The significance level.
@@ -29,10 +29,10 @@ stepdown_RomanoWolf <- function(dat, q, B, alpha, type=c("bmb", "bmb1", "bmb2"),
     stop("Invalid type. Choose one of 'bmb', 'bmb1', or 'bmb2'.")
   }
   # Check if dat is a data frame with the required elements
-  if (!is.data.frame(dat) || !all(c("X", "D") %in% names(dat))) {
-    stop("dat must be a data frame with elements X and D.")
+  if (!is.data.frame(dat) || !all(c("X", "Y") %in% names(dat))) {
+    stop("dat must be a data frame with elements X and Y.")
   }
-  D <- dat$D
+  D <- dat$Y
   p <- ncol(D)
   n <- nrow(D)
   X <- dat$X
