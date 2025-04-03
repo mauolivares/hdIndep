@@ -36,12 +36,10 @@ library(hdIndep)
 stepdown_RomanoWolf(...)
 ```
 
-You can also run a tiny simulation (~30 seconds) to verify that all is up and running:
+You can also run a tiny simulation in your terminal (~10 seconds) to verify that all is up and running. Simply navigate to the base directory, i.e., set the working directory to the directory containing this README, and execute
 
 ```
-# Navigate to scripts directory in the repository
 cd scripts
-# Execute
 Rscript tiny_simulation.r
 ```
 
@@ -49,7 +47,7 @@ Rscript tiny_simulation.r
 
 The main functions to be used in empirical applications are `stepdown_RomanoWolf.r` and `BMB.cv.r`. Their source files are in `R/` directory. Their documentation could be read from source files or, after installing the hdIndep package, in RStudio with e.g.`?stepdown_RomanoWolf`, like with usual functions.
 
-The example usage of whole workflow is in `scripts/tiny-simulation.r`. 
+The example usage of whole workflow is in `scripts/tiny_simulation.r`. 
 
 
 ## Data

@@ -58,7 +58,3 @@ cat("Optimal block size using rule of thumb:", q, "\n")
 cat("Number of rejected hypotheses:", length(stepdown$rejected_total), "\n")
 cat("Proportion of rejected hypotheses:", length(stepdown$rejected_total) / p, "\n")
 cat("Number of steps in the stepdown procedure:", stepdown$counter, "\n")
-cat("Rejected hypotheses in each step:\n")
-for (i in 1:stepdown$counter) {
-  cat("Step", i, ":", stepdown$rejected[[i]], "\n")
-}
