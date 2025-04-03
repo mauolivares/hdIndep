@@ -28,10 +28,7 @@ stepdown_RomanoWolf <- function(dat, q, B, alpha, type=c("bmb", "bmb1", "bmb2"),
   if (!type %in% c("bmb", "bmb1", "bmb2")) {
     stop("Invalid type. Choose one of 'bmb', 'bmb1', or 'bmb2'.")
   }
-  # Check if dat is a data frame with the required elements
-  if (!is.data.frame(dat) || !all(c("X", "Y") %in% names(dat))) {
-    stop("dat must be a data frame with elements X and Y.")
-  }
+
   D <- dat$Y
   p <- ncol(D)
   n <- nrow(D)
