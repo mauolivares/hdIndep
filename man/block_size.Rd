@@ -2,7 +2,7 @@
 % Please edit documentation in R/block_size.r
 \name{block_size}
 \alias{block_size}
-\title{Blocks size for Block Multiplier Bootstrap.}
+\title{Optimal Block Size for Block Multiplier Bootstrap.}
 \usage{
 block_size(n)
 }
@@ -10,10 +10,10 @@ block_size(n)
 \item{n}{Numeric. Sample size}
 }
 \value{
-Returns an integer value of block size.
+Returns an integer value corresponding to the optimal block size.
 }
 \description{
-Calculates size of the blocks needed for the block multiplier bootstrap, denoted as \eqn{q}, using the rule of thumb described in Olivares, Olma, and Wilhelm (2025). The function returns \eqn{q} using the approximatation if the sample size is larger than 224.
+Calculates size of the blocks needed for the block multiplier bootstrap, denoted as \eqn{q}, using the rule of thumb described in Olivares, Olma, and Wilhelm (2025).
 }
 \references{
 Olivares, M., Olma, T., and Wilhelm, D. (2025). A Powerful Bootstrap Test of Independence in High Dimensions. Preprint, arXiv:2503.21715.
@@ -25,7 +25,6 @@ Tomasz Olma
 
 Daniel Wilhelm
 }
+\keyword{Block}
 \keyword{Bootstrap}
-\keyword{Chatterjee}
-\keyword{Correlation}
-\keyword{Rank}
+\keyword{Multiplier}
