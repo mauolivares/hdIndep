@@ -11,7 +11,7 @@ Authors@R: c(
     person("Daniel", "Wilhelm", email =  "d.wilhelm@lmu.de", role = c("aut"))
     )
 Maintainer: Mauricio Olivares <mau.olivarego@gmail.com>
-Depends: R (>= 4.4.2)
+Depends: R (>= 3.0)
 Imports: 
     compiler
 License: GPL-3 | file LICENSE
