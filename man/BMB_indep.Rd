@@ -28,7 +28,7 @@ An object of class "BMB_indep", a list containing the following components:
 \item{cv}{Bootstrap critical value corresponding to the test statistic.}
 }
 \description{
-This function test \eqn{H_{0,j}: Y_j \perp X}, for \eqn{j=1,\dots,p} using the block-multiplier bootstrap test of See Olivares, Olma, and Wilhelm (2025) for details.
+This function test \eqn{H_{0,j}: Y_j \perp X}, for \eqn{j=1,\dots,p} using the block-multiplier bootstrap test of Olivares, Olma, and Wilhelm (2025).
 }
 \examples{
 \dontrun{

@@ -1,6 +1,6 @@
 #' @title Calculates the block-multiplier bootstrap test.
 #'
-#' @description This function test \eqn{H_{0,j}: Y_j \perp X}, for \eqn{j=1,\dots,p} using the block-multiplier bootstrap test of See Olivares, Olma, and Wilhelm (2025) for details.
+#' @description This function test \eqn{H_{0,j}: Y_j \perp X}, for \eqn{j=1,\dots,p} using the block-multiplier bootstrap test of Olivares, Olma, and Wilhelm (2025).
 #' @param dat Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
 #' @param B Numeric. The number of bootstrap samples.
 #' @param alpha Numeric. The significance level.
