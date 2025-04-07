@@ -44,17 +44,13 @@ gen_data <- function(n, p, tau = 0, rho = 0) {
 
 # Generate data
 dat <- gen_data(n = n, p = p, rho = rho, tau = tau)
-  
-# Calculate the test statistic as the maximum of many Chatterjee's rank correlations
-max_stats <- max_stat(dat)
+
+test_indep <- BMB_indep(dat, B, alpha, type, seed)
 stepdown <- stepdown_RomanoWolf(dat, q, B, alpha, type, seed, steps = TRUE)
-# Perform the BMB test
-test_bmb <- BMB.cv(dat, q, B, alpha, type, seed)
-cat("Printing the result.\n")
-cat("Test statistic:", max_stats, "\n")
-cat("Block multiplier bootstrap critical value:", test_bmb$cv, "\n")
-cat("Type of test statistic:", test_bmb$type, "\n")
-cat("Optimal block size using rule of thumb:", q, "\n")
+
+summary(test_indep)
+cat("**************************************************\n")
 cat("Number of rejected hypotheses:", length(stepdown$rejected_total), "\n")
 cat("Proportion of rejected hypotheses:", length(stepdown$rejected_total) / p, "\n")
 cat("Number of steps in the stepdown procedure:", stepdown$counter, "\n")
+cat("Printing the result from summary function.\n")

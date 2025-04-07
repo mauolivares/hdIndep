@@ -5,7 +5,7 @@
 #' @param q Numeric. The block size.
 #' @param B Numeric. The number of bootstrap samples.
 #' @param alpha Numeric. The significance level.
-#' @param type Character. The type of bootstrap critical value to be calculated. Options are "bmb", "bmb1", and "bmb2". See Olivares, Olma, and Wilhelm (2025) for details.
+#' @param type Character. The type of test statistic to be calculated. Options are "bmb", "bmb1", and "bmb2", which correspond to \eqn{\hat{T}^B}, \eqn{\hat{T}^{B,stud1}}, and \eqn{\hat{T}^{B, stud2}}, respectively. See Olivares, Olma, and Wilhelm (2025) for details.
 #' @param seed Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.
 #' @return Returns a list with the critical value and the type of test statistic.
 #' @author Maurcio Olivares

@@ -5,7 +5,7 @@
 #' @param q Numeric. The block size for the block multiplier bootstrap.
 #' @param B Numeric. The number of bootstrap replications.
 #' @param alpha Numeric. The significance level.
-#' @param type Character. The type of the block multiplier bootstrap.
+#' @param type Character. The type of test statistic to be calculated. Options are "bmb", "bmb1", and "bmb2", which correspond to \eqn{\hat{T}^B}, \eqn{\hat{T}^{B,stud1}}, and \eqn{\hat{T}^{B, stud2}}, respectively. See Olivares, Olma, and Wilhelm (2025) for details.
 #' @param seed Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.
 #' @param steps Logical. If \code{TRUE}, the function will return the steps of the stepdown procedure. The default is \code{FALSE}.
 #' @return Returns a list with the total number of rejections. If steps = \code{TRUE}, it will also return the steps of the stepdown procedure.
