@@ -18,7 +18,14 @@ BMB_indep(dat, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NULL)
 \item{seed}{Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.}
 }
 \value{
-
+An object of class "BMB_indep", a list containing the following components:
+\item{type}{Type of test Statistics.}
+\item{T_obs}{Test statistic. It can be one of three options: BMB, BMB1, or BMB2. See Olivares, Olma, and Wilhelm (2025) for details.}
+\item{n}{Sample Size.}
+\item{p}{Number of hypotheses.}
+\item{block_size}{Block size used in the bootstrap.}
+\item{B}{Number of bootstrap samples.}
+\item{cv}{Bootstrap critical value corresponding to the test statistic.}
 }
 \description{
 This function test \eqn{H_{0,j}: Y_j \perp X}, for \eqn{j=1,\dots,p} using the block-multiplier bootstrap test of See Olivares, Olma, and Wilhelm (2025) for details.
