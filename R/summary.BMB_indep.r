@@ -13,7 +13,7 @@
 #' @author Daniel Wilhelm
 #' @export
 
-summary.BMB_indep<-function(object, ..., digits = 4){
+summary.BMB_indep<-function(object, ..., digits=max(3, getOption("digits") - 3)){
 
   cat("\n")
   cat("**************************************************\n")
@@ -29,9 +29,9 @@ summary.BMB_indep<-function(object, ..., digits = 4){
   cat("\n")
   cat(paste("Sample Size: ", object$n, sep = ""))
   cat("\n")
-  cat(paste("Value of the test statistics ", round(object$T_obs, digits), sep = ""))
+  cat(paste("Value of the test statistics ", round(object$T_obs, 4), sep = ""))
   cat("\n")
-  cat(paste("Bootstrap Critical Value: ", round(object$cv, digits), sep = ""))
+  cat(paste("Bootstrap Critical Value: ", round(object$cv,4), sep = ""))
   cat("\n")
   if (object$type == "bmb") {
     cat("Critical value computed from the conditional distribution of the unstudentized bootstrap test statistic.")
