@@ -4,7 +4,7 @@ Title: Bootstrap Test for Independence Testing in High Dimensions
 Description: This R package implements the block multiplier bootstrap test for pairwise independence of one random variable from a large pool of other random variables. Moreover, this test is combined with a stepdown procedure (Romano-Wolf) for selecting those variables from the pool that violate independence, while controlling for the familiwise error rate. The theory is is developed in Olivares, Olma, and Wilhelm (2025) <https://arxiv.org/pdf/2503.21715#page=1.38>. 
 Version: 0.1.0
 BugReports: https://github.com/mauolivares/hdIndep/issues
-URL: https://github.com/mauolivares/hdIndep
+URL: https://mauolivares.github.io/hdIndep
 Authors@R: c(
     person( "Mauricio", "Olivares", email=  "mau.olivarego@gmail.com", role =  c("aut", "cre")),
     person("Tomasz", "Olma", email =  "t.olma@lmu.de", role = c("aut")),
