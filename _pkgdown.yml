@@ -2,3 +2,4 @@ url: https://mauolivares.github.io/hdIndep
 template:
   bootstrap: 5
 mathjax: true
+rd2html: true
