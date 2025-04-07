@@ -22,6 +22,8 @@ Author: Mauricio Olivares [aut, cre],
         Tomasz Olma [aut],
         Daniel Wilhelm [aut]
 Collate:
+    'BMB_indep.r'
+    'summary.BMB_indep.r'
     'BMB.cv.r'
     'block_size.r'
     'max_stat.r'
