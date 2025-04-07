@@ -1,4 +1,4 @@
 url: https://github.com/mauolivares/hdIndep
 template:
   bootstrap: 5
-
+mathjax: true
