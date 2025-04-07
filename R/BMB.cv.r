@@ -15,6 +15,16 @@
 #' Olivares, M., Olma, T., and Wilhelm, D. (2025). A Powerful Bootstrap Test of Independence in High Dimensions. Preprint, arXiv:2503.21715.
 #' @keywords block mutiplier bootstrap Chatterjee Rank Correlation
 #' @importFrom compiler cmpfun
+#' @examples
+#' \dontrun{
+#' n <- 100
+#' p <- 10
+#' dat <- list()
+#' dat$X <- rnorm(n)
+#' dat$Y <- MASS::mvrnorm(n = n, mu = rep(0,  p), Sigma=diag(rep(1, p)))
+#' BMB.cv(dat, q=2, B=100, alpha=0.05, type = "bmb1", seed = 5)
+#'
+#' }
 #' @export
 BMB.cv <- function(dat, q, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NULL) {
 

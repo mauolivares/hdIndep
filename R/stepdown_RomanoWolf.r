@@ -8,7 +8,7 @@
 #' @param type Character. The type of the block multiplier bootstrap.
 #' @param seed Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.
 #' @param steps Logical. If \code{TRUE}, the function will return the steps of the stepdown procedure. The default is \code{FALSE}.
-#' @return Returns a list with the total number of rejections. If steos = \code{TRUE}, it will also return the steps of the stepdown procedure.
+#' @return Returns a list with the total number of rejections. If steps = \code{TRUE}, it will also return the steps of the stepdown procedure.
 #' @author Maurcio Olivares
 #' @author Tomasz Olma
 #' @author Daniel Wilhelm

@@ -27,7 +27,7 @@ if (!is.numeric(n) || length(n) != 1 || n <= 0 || n != round(n)) {
 }
 block_size <- compiler::cmpfun(block_size)
 
-"mse_q" <- function(q, n) {
+mse_q <- function(q, n) {
   # Check if q is a positive integer
   if (!is.numeric(q) || length(q) != 1 || q <= 0 || q != round(q)) {
     stop("Block size must be a positive integer")
