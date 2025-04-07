@@ -7,7 +7,7 @@
 #' @param type Character. The type of test statistic to be calculated. Options are "bmb", "bmb1", and "bmb2", which correspond to \eqn{\hat{T}^B}, \eqn{\hat{T}^{B,stud1}}, and \eqn{\hat{T}^{B, stud2}}, respectively. See Olivares, Olma, and Wilhelm (2025) for details.
 #' @param seed Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.
 #' @return An object of class "BMB_indep", a list containing the following components:
-#' \item{type{Type of test Statistics.}
+#' \item{type}{Type of test Statistics.}
 #' \item{T_obs}{Test statistic. It can be one of three options: BMB, BMB1, or BMB2. See Olivares, Olma, and Wilhelm (2025) for details.}
 #' \item{n}{Sample Size.}
 #' \item{p}{Number of hypotheses.}
@@ -54,7 +54,7 @@ BMB_indep <- function(dat, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NUL
     decision <- "Reject the null hypothesis"
   } else {
     decision <- "Do not reject the null hypothesis"
-}
+  }
 
   object_hdindep<-list() #Generates an empty list to collect all the required info for summary
   object_hdindep$type <- type

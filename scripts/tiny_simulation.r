@@ -45,7 +45,7 @@ gen_data <- function(n, p, tau = 0, rho = 0) {
 # Generate data
 dat <- gen_data(n = n, p = p, rho = rho, tau = tau)
 
-test_indep <- BMB_indep(dat, B, alpha, type, seed)
+test_indep <- hdIndep::BMB_indep(dat, B, alpha, type, seed)
 stepdown <- stepdown_RomanoWolf(dat, q, B, alpha, type, seed, steps = TRUE)
 
 summary(test_indep)

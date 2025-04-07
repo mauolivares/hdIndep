@@ -15,7 +15,7 @@ BMB.cv(dat, q, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NULL)
 
 \item{alpha}{Numeric. The significance level.}
 
-\item{type}{Character. The type of bootstrap critical value to be calculated. Options are "bmb", "bmb1", and "bmb2". See Olivares, Olma, and Wilhelm (2025) for details.}
+\item{type}{Character. The type of test statistic to be calculated. Options are "bmb", "bmb1", and "bmb2", which correspond to \eqn{\hat{T}^B}, \eqn{\hat{T}^{B,stud1}}, and \eqn{\hat{T}^{B, stud2}}, respectively. See Olivares, Olma, and Wilhelm (2025) for details.}
 
 \item{seed}{Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.}
 }
@@ -24,6 +24,17 @@ Returns a list with the critical value and the type of test statistic.
 }
 \description{
 This function returns the bootstrap critical value of the statistic \deqn{T^B=\max_{1\le j\le p}\frac{1}{\sqrt{mq}}\sum_{k=1}^{m} \hat{A}_{j,k} \cdot \varepsilon_{k}} based on \eqn{B} block multiplier bootstrap samples.
+}
+\examples{
+\dontrun{
+n <- 100
+p <- 10
+dat <- list()
+dat$X <- rnorm(n)
+dat$Y <- MASS::mvrnorm(n = n, mu = rep(0,  p), Sigma=diag(rep(1, p)))
+BMB.cv(dat, q=2, B=100, alpha=0.05, type = "bmb1", seed = 5)
+
+}
 }
 \references{
 Olivares, M., Olma, T., and Wilhelm, D. (2025). A Powerful Bootstrap Test of Independence in High Dimensions. Preprint, arXiv:2503.21715.
