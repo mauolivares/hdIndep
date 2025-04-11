@@ -9,7 +9,7 @@ stepdown_RomanoWolf(
   q,
   B,
   alpha,
-  type = c("bmb", "bmb1", "bmb2"),
+  type = "bmb1",
   seed = NULL,
   steps = FALSE
 )
@@ -23,7 +23,7 @@ stepdown_RomanoWolf(
 
 \item{alpha}{Numeric. The significance level.}
 
-\item{type}{Character. The type of test statistic to be calculated. Options are "bmb", "bmb1", and "bmb2", which correspond to \eqn{\hat{T}^B}, \eqn{\hat{T}^{B,stud1}}, and \eqn{\hat{T}^{B, stud2}}, respectively. See Olivares, Olma, and Wilhelm (2025) for details.}
+\item{type}{Character. This argument specifies whether and how the test statistic and the bootstrap statistic are studentized. Options are "bmb" (no studentization), "bmb1" (default option), and "bmb2" (alternative studentization). The types are formally described in Olivares, Olma, and Wilhelm (2025).}
 
 \item{seed}{Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.}
 

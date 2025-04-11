@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   hdIndep: hdIndep.html
-last_built: 2025-04-07T12:30Z
+last_built: 2025-04-11T09:09Z
 urls:
   reference: https://mauolivares.github.io/hdIndep/reference
   article: https://mauolivares.github.io/hdIndep/articles

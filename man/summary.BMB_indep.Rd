@@ -15,7 +15,7 @@
 }
 \value{
 \code{summary_BMB_indep} returns an object of \link{class} "\code{summary.BMB_indep}" which has the following components
- \item{results}{Matrix with the Testing Problem, Type of Test Statistics, Test Statistics, Sample Size, Number of Hypothesis, Significance Level, Block size, Number of bootrap samples, and Block-Multiplier-Bootstrap critical value.}
+ \item{results}{Matrix with the Testing Problem, Test Statistics, type specifying whether the test statistic and the bootstrap statistic are studentized, Sample Size, Number of Hypothesis, Significance Level, Block size, Number of bootrap samples, and Block-Multiplier-Bootstrap critical value.}
 }
 \description{
 \code{summary} method for class \code{"BMB_indep"}

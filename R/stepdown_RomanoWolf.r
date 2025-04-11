@@ -5,7 +5,7 @@
 #' @param q Numeric. The block size for the block multiplier bootstrap.
 #' @param B Numeric. The number of bootstrap replications.
 #' @param alpha Numeric. The significance level.
-#' @param type Character. The type of test statistic to be calculated. Options are "bmb", "bmb1", and "bmb2", which correspond to \eqn{\hat{T}^B}, \eqn{\hat{T}^{B,stud1}}, and \eqn{\hat{T}^{B, stud2}}, respectively. See Olivares, Olma, and Wilhelm (2025) for details.
+#' @param type Character. This argument specifies whether and how the test statistic and the bootstrap statistic are studentized. Options are "bmb" (no studentization), "bmb1" (default option), and "bmb2" (alternative studentization). The types are formally described in Olivares, Olma, and Wilhelm (2025).
 #' @param seed Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.
 #' @param steps Logical. If \code{TRUE}, the function will return the steps of the stepdown procedure. The default is \code{FALSE}.
 #' @return Returns a list with the total number of rejections. If steps = \code{TRUE}, it will also return the steps of the stepdown procedure.
@@ -18,13 +18,16 @@
 #' @include BMB.cv.r
 #' @importFrom compiler cmpfun
 #' @export
-stepdown_RomanoWolf <- function(dat, q, B, alpha, type=c("bmb", "bmb1", "bmb2"), seed = NULL, steps = FALSE) {
+stepdown_RomanoWolf <- function(dat, q, B, alpha, type="bmb1", seed = NULL, steps = FALSE) {
   # Check if seed is NULL or a positive integer
   if (!is.null(seed) && (!is.numeric(seed) || length(seed) != 1 || seed <= 0 || seed != round(seed))) {
     stop("Seed must be a positive integer or NULL.")
   }
-  type <- match.arg(type)
-  # Check if type is a valid one
+  if (!is.null(seed)) set.seed(seed) # set the seed if provided
+
+  # Match the type while allowing for case-insensitivity matching
+  type <- match.arg(tolower(type), choices = c("bmb", "bmb1", "bmb2"))
+  # Check if the type is vald
   if (!type %in% c("bmb", "bmb1", "bmb2")) {
     stop("Invalid type. Choose one of 'bmb', 'bmb1', or 'bmb2'.")
   }
@@ -73,11 +76,11 @@ stepdown_RomanoWolf <- compiler::cmpfun(stepdown_RomanoWolf)
   # coded here so we can run it on the HPC.
   n <- length(xvec)
   PI <- rank(xvec, ties.method = "random")
-  fr <- rank(yvec, ties.method = "max")/n
-  gr <- rank((-yvec), ties.method = "max")/n
+  fr <- rank(yvec, ties.method = "max") / n
+  gr <- rank((-yvec), ties.method = "max") / n
   ord <- order(PI)
   fr <- fr[ord]
-  A1 <- sum(abs(fr[1:(n - 1)] - fr[2:n]))/(2 * n)
+  A1 <- sum(abs(fr[1:(n - 1)] - fr[2:n])) / (2 * n)
   CU <- mean(gr * (1 - gr))
   xi <- 1 - A1 / CU
   if (simple == TRUE) return(xi)

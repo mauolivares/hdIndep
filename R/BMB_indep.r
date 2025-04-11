@@ -4,11 +4,11 @@
 #' @param dat Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
 #' @param B Numeric. The number of bootstrap samples.
 #' @param alpha Numeric. The significance level.
-#' @param type Character. The type of test statistic to be calculated. Options are "bmb", "bmb1", and "bmb2", which correspond to \eqn{\hat{T}^B}, \eqn{\hat{T}^{B,stud1}}, and \eqn{\hat{T}^{B, stud2}}, respectively. See Olivares, Olma, and Wilhelm (2025) for details.
+#' @param type Character. This argument specifies whether and how the test statistic and the bootstrap statistic are studentized. Options are "bmb" (no studentization), "bmb1" (default option), and "bmb2" (alternative studentization). The types are formally described in Olivares, Olma, and Wilhelm (2025).
 #' @param seed Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.
 #' @return An object of class "BMB_indep", a list containing the following components:
-#' \item{type}{Type of test Statistics.}
-#' \item{T_obs}{Test statistic. It can be one of three options: BMB, BMB1, or BMB2. See Olivares, Olma, and Wilhelm (2025) for details.}
+#' \item{type}{Type. See description above}
+#' \item{T_obs}{The value of the test statistic.}
 #' \item{n}{Sample Size.}
 #' \item{p}{Number of hypotheses.}
 #' \item{block_size}{Block size used in the bootstrap.}
@@ -29,18 +29,25 @@
 #' dat <- list()
 #' dat$X <- rnorm(n)
 #' dat$Y <- MASS::mvrnorm(n = n, mu = rep(0,  p), Sigma=diag(rep(1, p)))
-#' test_indep <- BMB_indep(dat, B=100, alpha=0.05, type = "bmb1", seed = 5)
+#' test_indep <- BMB_indep(dat, B=100, alpha=0.05, type = "bmb", seed = 5)
 #' summary(test_indep)
 #'
 #' }
 #' @export
 #'
-BMB_indep <- function(dat, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NULL) {
+BMB_indep <- function(dat, B, alpha, type = "bmb1", seed = NULL) {
   # Check if seed is NULL or a positive integer
   if (!is.null(seed) && (!is.numeric(seed) || length(seed) != 1 || seed <= 0 || seed != round(seed))) {
     stop("Seed must be a positive integer or NULL.")
   }
-  type <- match.arg(type)
+  if (!is.null(seed)) set.seed(seed) # set the seed if provided
+
+  # Match the type while allowing for case-insensitivity matching
+  type <- match.arg(tolower(type), choices = c("bmb", "bmb1", "bmb2"))
+  # Check if the type is vald
+  if (!type %in% c("bmb", "bmb1", "bmb2")) {
+    stop("Invalid type. Choose one of 'bmb', 'bmb1', or 'bmb2'.")
+  }
   # Calculate the sample size
   n <- length(dat$X)
   # Calculate the optimal block size
@@ -55,8 +62,8 @@ BMB_indep <- function(dat, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NUL
   } else {
     decision <- "Do not reject the null hypothesis"
   }
-
-  object_hdindep<-list() #Generates an empty list to collect all the required info for summary
+  #Generate an empty list to collect all the required info for summary
+  object_hdindep <- list()
   object_hdindep$type <- type
   object_hdindep$T_obs <- T_obs
   object_hdindep$n <- n

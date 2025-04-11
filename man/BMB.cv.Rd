@@ -4,7 +4,7 @@
 \alias{BMB.cv}
 \title{Calculates the Gaussian BMB critical value based on the max-test statistic, where the maximum is taken over Chatterjee's correlation coefficients.}
 \usage{
-BMB.cv(dat, q, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NULL)
+BMB.cv(dat, q, B, alpha, type = "bmb1", seed = NULL)
 }
 \arguments{
 \item{dat}{Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.}
@@ -15,7 +15,7 @@ BMB.cv(dat, q, B, alpha, type = c("bmb", "bmb1", "bmb2"), seed = NULL)
 
 \item{alpha}{Numeric. The significance level.}
 
-\item{type}{Character. The type of test statistic to be calculated. Options are "bmb", "bmb1", and "bmb2", which correspond to \eqn{\hat{T}^B}, \eqn{\hat{T}^{B,stud1}}, and \eqn{\hat{T}^{B, stud2}}, respectively. See Olivares, Olma, and Wilhelm (2025) for details.}
+\item{type}{Character. This argument specifies whether and how the test statistic and the bootstrap statistic are studentized. Options are "bmb" (no studentization), "bmb1" (default option), and "bmb2" (alternative studentization). The types are formally described in Olivares, Olma, and Wilhelm (2025).}
 
 \item{seed}{Numeric. The seed for the random number generator. If \code{NULL}, the seed is not set. If a positive integer, it sets the seed for reproducibility.}
 }
@@ -32,7 +32,7 @@ p <- 10
 dat <- list()
 dat$X <- rnorm(n)
 dat$Y <- MASS::mvrnorm(n = n, mu = rep(0,  p), Sigma=diag(rep(1, p)))
-BMB.cv(dat, q=2, B=100, alpha=0.05, type = "bmb1", seed = 5)
+BMB.cv(dat, q=2, B=100, alpha=0.05, seed = 5) # default type is "bmb1"
 
 }
 }
