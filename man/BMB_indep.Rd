@@ -2,7 +2,7 @@
 % Please edit documentation in R/BMB_indep.r
 \name{BMB_indep}
 \alias{BMB_indep}
-\title{Calculates the block-multiplier bootstrap test.}
+\title{Block-multiplier bootstrap test.}
 \usage{
 BMB_indep(dat, B, alpha, type = "bmb1", seed = NULL)
 }
