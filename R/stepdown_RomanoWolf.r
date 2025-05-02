@@ -1,4 +1,4 @@
-#' @title Romano-Wolf Stepdown Method
+#' @title Romano-Wolf stepdown method
 #'
 #' @description Consider a family of individual null hypotheses \eqn{H_{0,j}: Y_j \perp X}, for \eqn{j=1,\dots,p}. This function implements a stepwise procedure for selecting those variables from \eqn{Y_1,\dots,Y_p} that violate independence, while controlling the family-wise error rate.
 #' @param dat Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.

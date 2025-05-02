@@ -1,4 +1,4 @@
-#' @title Calculates the Gaussian BMB critical value based on the max-test statistic, where the maximum is taken over Chatterjee's correlation coefficients.
+#' @title BMB critical value for the maximum of Chatterjee's rank correlations
 #'
 #' @description This function returns the bootstrap critical value of the statistic \deqn{T^B=\max_{1\le j\le p}\frac{1}{\sqrt{mq}}\sum_{k=1}^{m} \hat{A}_{j,k} \cdot \varepsilon_{k}} based on \eqn{B} block multiplier bootstrap samples.
 #' @param dat Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.

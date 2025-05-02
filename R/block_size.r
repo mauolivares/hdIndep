@@ -1,4 +1,4 @@
-#' @title Optimal Block Size for Block Multiplier Bootstrap.
+#' @title Optimal block size for the BMB test
 #'
 #' @description Calculates size of the blocks needed for the block multiplier bootstrap, denoted as \eqn{q}, using the rule of thumb described in Olivares, Olma, and Wilhelm (2025). 
 #' @param n Numeric. Sample size
