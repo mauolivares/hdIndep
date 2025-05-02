@@ -2,7 +2,7 @@
 % Please edit documentation in R/stepdown_RomanoWolf.r
 \name{stepdown_RomanoWolf}
 \alias{stepdown_RomanoWolf}
-\title{Romano-Wolf Stepdown Method}
+\title{Romano-Wolf stepdown method}
 \usage{
 stepdown_RomanoWolf(
   dat,
@@ -15,7 +15,7 @@ stepdown_RomanoWolf(
 )
 }
 \arguments{
-\item{dat}{Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.}
+\item{dat}{List with two elements: vector X and matrix Y. The \eqn{j}-th column in \eqn{Y} corresponds to \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.}
 
 \item{q}{Numeric. The block size for the block multiplier bootstrap.}
 

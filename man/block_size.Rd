@@ -2,7 +2,7 @@
 % Please edit documentation in R/block_size.r
 \name{block_size}
 \alias{block_size}
-\title{Optimal Block Size for Block Multiplier Bootstrap.}
+\title{Optimal block size for the BMB test}
 \usage{
 block_size(n)
 }

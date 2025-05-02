@@ -2,12 +2,12 @@
 % Please edit documentation in R/BMB_indep.r
 \name{BMB_indep}
 \alias{BMB_indep}
-\title{Block-multiplier bootstrap test.}
+\title{Block-multiplier bootstrap test of independence}
 \usage{
 BMB_indep(dat, B, alpha, type = "bmb1", seed = NULL)
 }
 \arguments{
-\item{dat}{Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.}
+\item{dat}{List with two elements: vector X and matrix Y. The \eqn{j}-th column in \eqn{Y} corresponds to \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.}
 
 \item{B}{Numeric. The number of bootstrap samples.}
 
@@ -28,7 +28,7 @@ An object of class "BMB_indep", a list containing the following components:
 \item{cv}{Bootstrap critical value corresponding to the test statistic.}
 }
 \description{
-This function test \eqn{H_{0,j}: Y_j \perp X}, for \eqn{j=1,\dots,p} using the block-multiplier bootstrap test of Olivares, Olma, and Wilhelm (2025).
+This function tests the hypothesis \eqn{H_{0}: Y_j \perp X} for \eqn{j=1,\dots,p} using the block multiplier bootstrap test of Olivares, Olma, and Wilhelm (2025).
 }
 \examples{
 \dontrun{

@@ -2,12 +2,12 @@
 % Please edit documentation in R/max_stat.r
 \name{max_stat}
 \alias{max_stat}
-\title{Calculates the max-test statistic, where the maximum is taken over Chatterjee's rank correlation coefficients.}
+\title{Test statistic based on the maximum of Chatterjee's rank correlations}
 \usage{
 max_stat(dat)
 }
 \arguments{
-\item{dat}{Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.}
+\item{dat}{List with two elements: vector X and matrix Y. The \eqn{j}-th column in \eqn{Y} corresponds to \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.}
 }
 \value{
 Returns the test statistic.

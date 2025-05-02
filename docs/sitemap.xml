@@ -1,17 +1,45 @@
-<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://mauolivares.github.io/hdIndep/404.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/LICENSE-text.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/articles/hdIndep.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/articles/index.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/authors.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/index.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/reference/BMB.cv.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/reference/BMB_indep.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/reference/block_size.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/reference/index.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/reference/max.stat.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/reference/max_stat.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/reference/stepdown_RomanoWolf.html</loc></url>
-<url><loc>https://mauolivares.github.io/hdIndep/reference/summary.BMB_indep.html</loc></url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/404.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/articles/hdIndep.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/reference/block_size.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/reference/BMB.cv.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/reference/BMB_indep.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/reference/max.stat.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/reference/max_stat.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/reference/stepdown_RomanoWolf.html</loc>
+  </url>
+  <url>
+    <loc>https://mauolivares.github.io/hdIndep/reference/summary.BMB_indep.html</loc>
+  </url>
 </urlset>
-
