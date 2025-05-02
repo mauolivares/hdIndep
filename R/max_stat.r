@@ -1,7 +1,7 @@
 #' @title Test statistic based on the maximum of Chatterjee's rank correlations
 #'
 #' @description This function returns the statistic \deqn{\hat{T}=\sqrt{n}\max_{1\le j\le p}\hat{\xi}_j}, where \eqn{\hat{\xi}_j} is the Chatterjee's rank correlation coefficient for the \eqn{j}-th hypothesis. See Olivares, Olma, and Wilhelm (2025) for details.
-#' @param dat Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
+#' @param dat List with two elements: vector X and matrix Y. The \eqn{j}-th column in \eqn{Y} corresponds to \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
 #' @return Returns the test statistic.
 #' @author Maurcio Olivares
 #' @author Tomasz Olma

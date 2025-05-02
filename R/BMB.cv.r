@@ -1,7 +1,7 @@
 #' @title BMB critical value for the maximum of Chatterjee's rank correlations
 #'
 #' @description This function returns the bootstrap critical value of the statistic \deqn{T^B=\max_{1\le j\le p}\frac{1}{\sqrt{mq}}\sum_{k=1}^{m} \hat{A}_{j,k} \cdot \varepsilon_{k}} based on \eqn{B} block multiplier bootstrap samples.
-#' @param dat Data frame. There are two elements in the data frame, X and Y, where X is a random variable and Y corresponds with the \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
+#' @param dat List with two elements: vector X and matrix Y. The \eqn{j}-th column in \eqn{Y} corresponds to \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
 #' @param q Numeric. The block size.
 #' @param B Numeric. The number of bootstrap samples.
 #' @param alpha Numeric. The significance level.
