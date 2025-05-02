@@ -1,6 +1,6 @@
 #' @title Block-multiplier bootstrap test of independence
 #'
-#' @description This function test \eqn{H_{0,j}: Y_j \perp X}, for \eqn{j=1,\dots,p} using the block-multiplier bootstrap test of Olivares, Olma, and Wilhelm (2025).
+#' @description This function tests the hypothesis \eqn{H_{0}: Y_j \perp X} for \eqn{j=1,\dots,p} using the block multiplier bootstrap test of Olivares, Olma, and Wilhelm (2025).
 #' @param dat List with two elements: vector X and matrix Y. The \eqn{j}-th column in \eqn{Y} corresponds to \eqn{Y_j} in the individual hypothesis \eqn{Y_j \perp X}.
 #' @param B Numeric. The number of bootstrap samples.
 #' @param alpha Numeric. The significance level.
